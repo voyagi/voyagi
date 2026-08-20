@@ -2,9 +2,9 @@ Developer tooling, plus the memory and MCP plumbing underneath AI agents. Mostly
 
 ## Upstream
 
-[claude-glass](https://github.com/cadentdev/claude-glass) didn't work on Windows at all. Backslash path separators left every internal link unrewritten, and `serve` returned 403 for every file, because a containment check compared a backslash path against a forward-slash prefix. I reported it as [#28](https://github.com/cadentdev/claude-glass/issues/28) and fixed it in [#31](https://github.com/cadentdev/claude-glass/pull/31). That PR also carries two dependency XSS advisories, because the project's pre-push tests can't go green on Windows while those path bugs are there, so they had to land together. It shipped in [v0.7.8](https://github.com/cadentdev/claude-glass/releases/tag/v0.7.8):
+[claude-glass](https://github.com/cadentdev/claude-glass) didn't work on Windows at all. Backslash path separators left every internal link unrewritten, and `serve` returned 403 for every file, because a containment check compared a backslash path against a forward-slash prefix. I reported it as [#28](https://github.com/cadentdev/claude-glass/issues/28) and fixed it in [#31](https://github.com/cadentdev/claude-glass/pull/31). That PR also carries two dependency XSS advisories, because the project's pre-push tests can't go green on Windows while those path bugs are there, so they had to land together. It shipped in [v0.7.8](https://github.com/cadentdev/claude-glass/releases/tag/v0.7.8)
 
-> Backslash path separators no longer break Windows builds (community contribution by @voyagi, #31, fixes #28)
+Backslash path separators no longer break Windows builds (community contribution by @voyagi, #31, fixes #28)
 
 The maintainer added CI in the same release, running the tests on Ubuntu and Windows. The Windows job [failed on pre-fix main](https://github.com/cadentdev/claude-glass/actions/runs/32321567161) and [passed on the branch carrying the fix](https://github.com/cadentdev/claude-glass/actions/runs/32321867418). Both runs are red overall on a separate dependency-audit job.
 

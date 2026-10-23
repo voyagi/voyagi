@@ -1,4 +1,4 @@
-I build small tools and services, mostly in TypeScript, some Python. Each one starts from a written spec of what "done" means, and I test it against that spec until it holds.
+I build tools and services. Each one starts with a written spec of what "done" means, and I test it against that spec until it holds.
 
 ## Projects
 
